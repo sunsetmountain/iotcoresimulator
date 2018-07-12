@@ -53,7 +53,7 @@ In the case of needing to delete a table...
 
 8. Use SCP to copy the public key that was just generated. The path the SSH keys was the result of the "pwd" command in the previous step.
 
-        gcloud compute scp data-simulator-1:/[PATH TO SSH KEYS]/ec_public.pem .
+        gcloud compute scp events-simulator:/[PATH TO SSH KEYS]/ec_public.pem .
 
 9. Register the VM as an IoT device:
 
