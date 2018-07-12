@@ -30,7 +30,10 @@ import random
 from random import randint
 import json
 import jwt
+from tendo import singleton
 import paho.mqtt.client as mqtt
+
+me = singleton.SingleInstance() # will sys.exit(-1) if another instance of this program is already running
 
 def get_ip_address():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -192,6 +195,17 @@ def parse_command_line_args():
             help='Sample JSON file to stream the data from.')
     return parser.parse_args()
 
+def generate_data():
+    randomid = str(randint(10,60))
+    data = {
+	    'deviceid' : "badge" + randomid,
+	    'userid' : "test_user_" + randomid,
+	    'devicePubtime' : datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
+	    'temp' : randint(2700,5000),
+        'lux' : randint(50,1000)
+    }
+    json_str = json.dumps(data)
+    return json_str
 
 # [START iot_mqtt_run]
 def main():
@@ -211,12 +225,9 @@ def main():
         args.private_key_file, args.algorithm, args.ca_certs,
         args.mqtt_bridge_hostname, args.mqtt_bridge_port)
 
-    #data_file = "./data/SampleData.json"
-    data_file = args.json_data_file
-    fr = open(data_file, 'r')
     i = 1 
-    for line in fr:
-        data = json.loads(line)   
+    while i <= 10000:
+        data = generate_data()   
         # Publish "payload" to the MQTT topic. qos=1 means at least once
         # delivery. Cloud IoT Core also supports qos=0 for at most once
         # delivery.
@@ -224,7 +235,7 @@ def main():
         print('Publishing message #{}: \'{}\''.format(i, payload))
         client.publish(mqtt_topic, payload, qos=1)
         i += 1
-        #time.sleep(0.1)
+        time.sleep(0.1)
 
     # End the network loop and finish.
     client.loop_stop()
