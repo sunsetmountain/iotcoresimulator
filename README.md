@@ -13,7 +13,7 @@ NOTE: Replace PROJECT_ID with your project in the following commands
         bq --location=US mk --dataset PROJECT_ID:eventsDataset
         bq mk --table PROJECT_ID:eventsDataset.eventsTable sensorid:STRING,iserid:STRING,devicePubtime:TIMESTAMP,temp:FLOAT,lux:FLOAT
 
-In the case of needing to delete a table...
+In the case the table needs to be deleted (i.e. in order to be recreated)...
 
         bq rm -t -f PROJECT_ID:eventsDataset.eventsTable
 
