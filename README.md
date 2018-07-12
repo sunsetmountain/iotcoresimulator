@@ -57,7 +57,7 @@ In the case of needing to delete a table...
 
 9. Register the VM as an IoT device:
 
-        gcloud beta iot devices create myVM \
+        gcloud beta iot devices create simulatorVM \
             --project=PROJECT_ID \
             --region=us-central1 \
             --registry=events \
