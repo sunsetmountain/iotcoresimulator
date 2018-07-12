@@ -38,7 +38,7 @@ In the case of needing to delete a table...
 
 7. Connect to the VM. Install the necessary software and create a security certificate. Note the full path of the directory that the security certificate is stored in (the results of the "pwd" command). Then exit the connection.
 
-        gcloud compute ssh data-simulator-1
+        gcloud compute ssh events-simulator
         sudo apt-get update
         sudo apt-get install git
         git clone https://github.com/sunsetmountain/iotcoresimulator
