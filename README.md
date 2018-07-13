@@ -67,5 +67,5 @@ In the case the table needs to be deleted (i.e. in order to be recreated)...
 
         gcloud compute ssh events-simulator
         cd iotcoresimulator
-        python iotcoresimulator.py --registry_id=iot_badges --project_id=PROJECT_ID --device_id=simulatorVM
+        python iotcoresimulator.py --registry_id=iot-badges --project_id=PROJECT_ID --device_id=simulatorVM
         exit
