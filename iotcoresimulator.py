@@ -202,7 +202,7 @@ def generate_data():
 	    'userid' : "test_user_" + randomid,
 	    'devicePubtime' : datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
 	    'temp' : randint(2700,5000),
-        'lux' : randint(50,1000)
+	    'lux' : randint(50,1000)
     }
     json_str = json.dumps(data)
     return json_str
@@ -227,11 +227,10 @@ def main():
 
     i = 1 
     while i <= 10000:
-        data = generate_data()   
+        payload = generate_data()   
         # Publish "payload" to the MQTT topic. qos=1 means at least once
         # delivery. Cloud IoT Core also supports qos=0 for at most once
         # delivery.
-        payload = json.dumps(data)    # JSON object to string conversion
         print('Publishing message #{}: \'{}\''.format(i, payload))
         client.publish(mqtt_topic, payload, qos=1)
         i += 1
