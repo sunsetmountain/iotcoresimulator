@@ -60,12 +60,12 @@ In the case the table needs to be deleted (i.e. in order to be recreated)...
         gcloud beta iot devices create simulatorVM \
             --project=PROJECT_ID \
             --region=us-central1 \
-            --registry=events \
+            --registry=iot-badges \
             --public-key path=ec_public.pem,type=es256
 
 10. Connect to the VM. Send the mock data (data/SampleData.json) using the simulateData.py script. This publishes several hundred JSON-formatted messages to the device's MQTT topic one by one:
 
         gcloud compute ssh events-simulator
         cd iotcoresimulator
-        python iotcoresimulator.py --registry_id=events --project_id=PROJECT_ID --device_id=simulatorVM
+        python iotcoresimulator.py --registry_id=iot_badges --project_id=PROJECT_ID --device_id=simulatorVM
         exit
