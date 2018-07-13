@@ -200,7 +200,7 @@ def generate_data():
     data = {
 	    'deviceid' : "badge" + randomid,
 	    'userid' : "test_user_" + randomid,
-	    'devicePubtime' : datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
+	    'devicePubTime' : datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
 	    'temp' : randint(2700,5000),
 	    'lux' : randint(50,1000)
     }
