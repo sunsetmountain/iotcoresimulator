@@ -198,11 +198,12 @@ def parse_command_line_args():
 def generate_data():
     randomid = str(randint(10,60))
     data = {
-	    'deviceid' : "badge" + randomid,
-	    'userid' : "test_user_" + randomid,
-	    'devicePubTime' : datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
-	    'temp' : randint(2700,5000),
-	    'lux' : randint(50,1000)
+	    # 'deviceid' : "badge" + randomid,
+	    # 'userid' : "test_user_" + randomid,
+	    # 'devicePubTime' : datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
+	    'Temp' : randint(2700,5000),
+	    'Lux' : randint(50,1000),
+	    'Batt' : randint(0,100)
     }
     json_str = json.dumps(data)
     return json_str
