@@ -10,8 +10,7 @@ NOTE: Replace PROJECT_ID with your project in the following commands
 
 2. Create a BigQuery dataset and table:
 
-        bq --location=US mk --dataset PROJECT_ID:eventsDataset
-        bq mk --table PROJECT_ID:eventsDataset.eventsTable sensorid:STRING,iserid:STRING,devicePubTime:TIMESTAMP,temp:FLOAT,lux:FLOAT
+        bq mk --table PROJECT_ID:eventsDataset.eventsTable deviceid:STRING,Temp:FLOAT,Batt:FLOAT,Lux:FLOAT,messageid:STRING,publishTime:TIMESTAMP
 
 In the case the table needs to be deleted (i.e. in order to be recreated)...
 
