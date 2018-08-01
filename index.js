@@ -22,7 +22,7 @@ exports.subscribe = function (event, callback) {
   //pubSubInfo.deviceRegistryLocation = event.data.attributes.deviceRegistryLocation
   var rows = [pubsubInfo];
 
-  console.log(`Incoming data: ${rows}`);
+  console.log(`Incoming data: ${JSON.stringify(rows)}`);
 
   // Instantiates a client
   const bigquery = BigQuery({
